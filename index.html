@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessing Immediate Needs - Children</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Brand Colours Palette
+           #C6B4D9 (Soft Lavender)
+           #513873 (Deep Purple)
+           #413659 (Midnight Purple)
+           #f6f5f8 (Soft Grey Background)
+           #9C7F9D (Muted Rose)
+        */
+        :root {
+            --brand-lavender: #C6B4D9;
+            --brand-purple: #513873;
+            --brand-dark: #413659;
+            --brand-grey: #f6f5f8;
+            --brand-rose: #9C7F9D;
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: var(--brand-grey);
+            color: var(--brand-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--brand-purple);
+        }
+
+        .header {
+            background-color: var(--brand-purple);
+            padding: 24px;
+            color: white;
+            text-align: center;
+        }
+
+        .instruction-area {
+            padding: 20px 0 10px 0;
+            text-align: center;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            padding: 0 25px 25px 25px;
+        }
+
+        @media (min-width: 900px) {
+            .activity-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Flip Card Base */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 420px; /* Increased height to accommodate icons */
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 16px;
+        }
+
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border-radius: 16px;
+            border: 2px solid var(--brand-purple);
+        }
+
+        .flip-card-front {
+            background-color: var(--brand-dark);
+            color: white;
+        }
+
+        .flip-card-back {
+            background-color: white;
+            color: var(--brand-dark);
+            transform: rotateY(180deg);
+            text-align: center;
+        }
+
+        .icon-container {
+            margin-bottom: 16px;
+            color: var(--brand-lavender);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .tag-child { background-color: #fef3c7; color: #92400e; }
+
+        .footer-note {
+            margin-top: 10px;
+            padding-bottom: 25px;
+            font-size: 0.85rem;
+            color: var(--brand-purple);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .click-icon {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- New Heading -->
+        <div class="header">
+            <h1 class="text-2xl font-bold">Considerations for children</h1>
+        </div>
+
+        <div class="instruction-area">
+            <p class="text-gray-600 text-sm italic">Click the cards to reveal important steps for assessing the safety of children</p>
+        </div>
+
+        <div class="activity-grid">
+            <!-- Card 1: Immediate Safety -->
+            <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <!-- Shield Icon -->
+                        <div class="icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <span class="tag tag-child">Safety First</span>
+                        <h3 class="text-2xl font-bold mb-2">Are they safe?</h3>
+                        <p class="opacity-80 text-sm">Checking where they are now</p>
+                        <div class="click-icon">Click to reveal</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--brand-purple)">Immediate Safety</h3>
+                        <p class="text-sm leading-relaxed">
+                            Ask if the children are with a safe person right now. If they are still at home or with the person using violence, we need to think about a safe way to get them out. Do they have a safe place to go tonight, like a relative's house or a shelter?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Practical Help -->
+            <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <!-- Backpack Icon -->
+                        <div class="icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M9 12v8"/><path d="M15 12v8"/><path d="M8 8V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><path d="M10 12h4"/></svg>
+                        </div>
+                        <span class="tag tag-child">Daily Needs</span>
+                        <h3 class="text-2xl font-bold mb-2">Practical Support</h3>
+                        <p class="opacity-80 text-sm">School and daily routines</p>
+                        <div class="click-icon">Click to reveal</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--brand-purple)">Practical Help</h3>
+                        <p class="text-sm leading-relaxed">
+                            If they had to leave home quickly, do the children have what they need for tomorrow? Think about school uniforms, school bags, or basic clothes. Can the school be told about the situation so they can help keep the children safe while they are in class?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Rights & Support -->
+            <div class="flip-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <!-- Scales Icon -->
+                        <div class="icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-2.13.65-3 0"/><path d="m2 16 3-8 3 8c-.87.65-2.13.65-3 0"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+                        </div>
+                        <span class="tag tag-child">Their Rights</span>
+                        <h3 class="text-2xl font-bold mb-2">Ongoing Care</h3>
+                        <p class="opacity-80 text-sm">Court orders and survivors</p>
+                        <div class="click-icon">Click to reveal</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--brand-purple)">Rights & Support</h3>
+                        <p class="text-sm leading-relaxed">
+                            Children are survivors too. Ask if there are any current Family Court orders or Apprehended Violence Orders (AVOs) that include the children. Later on, they might need specialist counselling to help them heal from the trauma of what they have seen or heard.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Remember: You aren't a counsellor, but asking these simple questions helps keep children safe.
+        </div>
+    </div>
+
+</body>
+</html>
